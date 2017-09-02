@@ -1,26 +1,5 @@
 <template>
   <v-app light>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-    >
-      <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :key="i"
-          value="true"
-        >
-          <v-list-tile-action>
-            <v-icon light v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-toolbar fixed>
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn
@@ -51,36 +30,52 @@
       </v-btn>
     </v-toolbar>
     <main>
-      <v-container fluid>
-        <v-stepper v-model="e6" vertical non-linear>
-          <v-stepper-step step="1">
-            京都行第一站
-            <small>Summarize if needed</small>
-          </v-stepper-step>
-          <v-stepper-content step="1">
-            <div class="">
-              <img src="public/DSCF1074.JPG" alt="" height="400px">
-            </div>
-          </v-stepper-content>
-          <v-stepper-step step="2">京都行第二站</v-stepper-step>
-          <v-stepper-content step="2">
-            <div class="">
-              <img src="public/DSCF1074.JPG" alt="" height="400px">
-            </div>
-          </v-stepper-content>
-          <v-stepper-step step="3">京都行第三站</v-stepper-step>
-          <v-stepper-content step="3">
-            <div class="">
-              <img src="public/DSCF1074.JPG" alt="" height="400px">
-            </div>
-          </v-stepper-content>
-          <v-stepper-step step="4">京都行第四站</v-stepper-step>
-          <v-stepper-content step="4">
-            <div class="">
-              <img src="public/DSCF1074.JPG" alt="" height="400px">
-            </div>
-          </v-stepper-content>
-        </v-stepper>
+      <v-container grid-list-xl text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs10 offset-xs1>
+            <div class="text-xs-center">
+    <v-chip label>Label</v-chip>
+
+    <v-chip label class="pink white--text">
+      <v-icon left>label</v-icon>Tags
+    </v-chip>
+
+    <v-chip label outline class="red red--text">
+      <v-icon left>label</v-icon>Outline
+    </v-chip>
+  </div>
+            <v-stepper v-model="e6" vertical non-linear>
+              <v-stepper-step step="1">
+                京都行第一站
+                <small>Summarize if needed</small>
+              </v-stepper-step>
+              <v-stepper-content step="1">
+                <div class="">
+                  <img src="public/DSCF1074.JPG" alt="" height="400px">
+                </div>
+              </v-stepper-content>
+              <v-stepper-step step="2">京都行第二站</v-stepper-step>
+              <v-stepper-content step="2">
+                <div class="">
+                  <img src="public/DSCF1074.JPG" alt="" height="400px">
+                </div>
+              </v-stepper-content>
+              <v-stepper-step step="3">京都行第三站</v-stepper-step>
+              <v-stepper-content step="3">
+                <div class="">
+                  <img src="public/DSCF1074.JPG" alt="" height="400px">
+                </div>
+              </v-stepper-content>
+              <v-stepper-step step="4">京都行第四站</v-stepper-step>
+              <v-stepper-content step="4">
+                <div class="">
+                  <img src="public/DSCF1074.JPG" alt="" height="400px">
+                </div>
+              </v-stepper-content>
+            </v-stepper>    
+          </v-flex>
+      </v-layout>
+        
       </v-container>
     </main>
     <v-navigation-drawer

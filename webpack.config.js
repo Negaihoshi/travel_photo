@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -32,7 +33,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          plugins: ['lodash'],
+          presets: [['env', { 'modules': false, 'targets': { 'node': 4 } }]]
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -83,6 +88,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new LodashModuleReplacementPlugin
   ])
 }
